@@ -73,7 +73,7 @@ $this->registerJs($script, yii\web\View::POS_HEAD); ?>
                 </div>
                 <div class="panel-body">
                     <p><?=Yii::t('common', 'Попълнете формуляра за кандидатстване за участие в програмата')?></p>
-                    <a href="#" class="btn btn-default"><?=Yii::t('common', 'Детайл')?></a>
+                    <a href="/site/about" class="btn btn-default"><?=Yii::t('common', 'Детайл')?></a>
                 </div>
             </div>
         </div>
@@ -84,7 +84,7 @@ $this->registerJs($script, yii\web\View::POS_HEAD); ?>
                 </div>
                 <div class="panel-body">
                     <p><?=Yii::t('common', 'Моля, прочетете внимателно условията на договора')?></p>
-                    <a href="#" class="btn btn-default"><?=Yii::t('common', 'Детайл')?></a>
+                    <a href="/site/dogovor" class="btn btn-default"><?=Yii::t('common', 'Детайл')?></a>
                 </div>
             </div>
         </div>

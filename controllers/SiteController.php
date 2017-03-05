@@ -77,6 +77,10 @@ class SiteController extends Controller
     {
         return $this->render('program');
     }
+    public function actionDogovor()
+    {
+        return $this->render('dogovor');
+    }
 
     /**
      * Login action.
