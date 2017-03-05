@@ -4,11 +4,12 @@ $params = require(__DIR__ . '/params.php');
 
 $config = [
     'id' => 'basic',
-    'language'=>'ru',
+   // 'language'=>'ru',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'components' => [
         'request' => [
+            'baseUrl'=> '',
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'BcW6Q6UUk3-UhVEYz6jblRsK-pucTeFo',
         ],
@@ -40,14 +41,28 @@ $config = [
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
-        /*
+
+    'sourceLanguage' => 'bg',
+    'language' => 'bg',
+
+
         'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
+            'class' => 'codemix\localeurls\UrlManager',
+            'languages' => ['ru', 'bg','ukr'],
+            'enableDefaultLanguageUrlCode' => true,
             'rules' => [
+                'page/<view:[a-zA-Z0-9-]+>' => 'page',
             ],
         ],
-        */
+
+        'i18n' => [
+    'translations' => [
+        'common*' => [
+            'class' => 'yii\i18n\PhpMessageSource',
+            'basePath' => '@app/messages',
+        ],
+    ],
+    ],
     ],
     'params' => $params,
 ];

@@ -9,6 +9,7 @@ use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 
+
 AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
@@ -28,39 +29,44 @@ AppAsset::register($this);
 
 <!-- Navigation -->
 <?php
+$title=Yii::t('common', 'ПРОФИ ЦЕНТЪР БГ');
+$home=Yii::t('common', 'Начало');
+$news=Yii::t('common', 'Новини и полезна информация');
+$personal=Yii::t('common', 'Анкета-заявка');
+$contact=Yii::t('common', 'Контакти');
 NavBar::begin([
-    'brandLabel' => '
-<div class="form-group form-inline">
-<span>ПРОФИ ЦЕНТЪР БГ <span>&nbsp; &nbsp;
+    'brandLabel' =>'<div class="form-group form-inline">'. $title.'
 <img width="28px" height="27px" src="/web/icons/google.png" >
 <img width="30px" src="/web/icons/facebook.png" >
-<img width="30px" src="/web/icons/viber.png" >
+<img width="30px" src="/web/icons/viber.png"  title="+359892205510
++359892205510">
 </div>',
+
+
+//    'brandLabel' =>
+////        Html::img('@web/icons/google.png', ['alt'=>Yii::$app->name,'width'=>'28']),
+//        Html::img('@web/icons/facebook.png', ['alt'=>Yii::$app->name,'width'=>'30']),
+//        Html::img('@web/icons/viber.png', ['alt'=>Yii::$app->name,'width'=>'30']),
+
+
     'brandUrl' => Yii::$app->homeUrl,
     'options' => [
         'class' => 'navbar-inverse navbar-fixed-top',
     ],
+
 ]);
 echo Nav::widget([
     'options' => ['class' => 'navbar-nav navbar-right'],
     'items' => [
-        ['label' => 'Начало', 'url' => ['/site/index']],
-        ['label' => 'Новини и полезна информация', 'url' => ['/site/about']],
-        ['label' => 'Анкета-заявка', 'url' => ['/site/about']],
-        ['label' => 'Контакти', 'url' => ['/site/contact']],
-        Yii::$app->user->isGuest ? (
-        ['label' => 'Login', 'url' => ['/site/login']]
-        ) : (
-            '<li>'
-            . Html::beginForm(['/site/logout'], 'post')
-            . Html::submitButton(
-                'Logout (' . Yii::$app->user->identity->username . ')',
-                ['class' => 'btn btn-link logout']
-            )
-            . Html::endForm()
-            . '</li>'
-        )
+        ['label' => $home, 'url' => ['/site/index']],
+        ['label' => $news, 'url' => ['/site/news']],
+        ['label' => $personal, 'url' => ['/site/about']],
+        ['label' => $contact, 'url' => ['/site/contact']],
+        ['label' => $this->render('main/select-language'),],
+
     ],
+    'encodeLabels' => false,
+
 ]);
 NavBar::end();
 ?>
@@ -77,19 +83,19 @@ NavBar::end();
         <div class="item active">
             <div class="fill" style="background-image:url(<?= Yii::getAlias('@web').'/images/img1.jpg'  ?>);"></div>
             <div  class="carousel-caption text-info">
-                <h2>Сезонна работа на курортите в България</h2>
+                <h2><?= Yii::t('common', 'Сезонна работа на курортите в България') ?></h2>
             </div>
         </div>
         <div class="item">
             <div class="fill" style="background-image:url(<?= Yii::getAlias('@web').'/images/img2.jpg'  ?>);"></div>
             <div class="carousel-caption text-info">
-                <h2>Сезонна работа на курортите в България</h2>
+                <h2><?= Yii::t('common', 'Сезонна работа на курортите в България') ?></h2>
             </div>
         </div>
         <div class="item">
             <div class="fill" style="background-image:url(<?= Yii::getAlias('@web').'/images/img3.jpg'  ?>);"></div>
             <div class="carousel-caption " >
-                <h2>Студентска практика в България</h2>
+                <h2><?= Yii::t('common', 'Студентска практика в България') ?></h2>
             </div>
         </div>
     </div>
@@ -104,6 +110,7 @@ NavBar::end();
 </header>
 <!-- Page Content -->
 <div class="wrap">
+
     <div class="container">
         <?= $content ?>
     </div>
@@ -113,7 +120,8 @@ NavBar::end();
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; ПРОФИ ЦЕНТЪР БГ <?= date('Y') ?></p>
+        <p class="pull-left">&copy; <?=$title ?> <?= date('Y') ?> </p>
+
 
         <p class="pull-right"><?= Yii::powered() ?></p>
     </div>

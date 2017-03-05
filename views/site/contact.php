@@ -8,7 +8,8 @@ use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use yii\captcha\Captcha;
 
-$this->title = 'Contact';
+$contact=Yii::t('common', 'Контакти');
+$this->title = $contact;
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-contact">
@@ -33,31 +34,37 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?php else: ?>
 
-        <p>
-            If you have business inquiries or other questions, please fill out the following form to contact us.
-            Thank you.
-        </p>
 
         <div class="row">
+            <h3>
+            <div class="col-lg-5">
+                <?=Yii::t('common', '</br>България </br></br> Варна </br></br> п.к. 9000 </br></br> бул. “Съборни” № 46, ет. 2 </br></br> Тел. +359892205510 </br></br> Email: proficenter.bg@gmail.com')?>
+            </div>
+            </h3>
+            <div class="col-lg-1">
+
+            </div>
             <div class="col-lg-5">
 
                 <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
 
-                    <?= $form->field($model, 'name')->textInput(['autofocus' => true]) ?>
+                <?= $form->field($model, 'firstname')->textInput(['autofocus' => true])->label(Yii::t('common', 'Име')) ?>
 
-                    <?= $form->field($model, 'email') ?>
+                <?= $form->field($model, 'secondname')->textInput(['autofocus' => true])->label(Yii::t('common', 'Фамилия'))?>
 
-                    <?= $form->field($model, 'subject') ?>
+                <?= $form->field($model, 'email')->label('Email') ?>
 
-                    <?= $form->field($model, 'body')->textarea(['rows' => 6]) ?>
+                <?= $form->field($model, 'phone')->label('Телефон') ?>
 
-                    <?= $form->field($model, 'verifyCode')->widget(Captcha::className(), [
-                        'template' => '<div class="row"><div class="col-lg-3">{image}</div><div class="col-lg-6">{input}</div></div>',
-                    ]) ?>
+                <?= $form->field($model, 'body')->textarea(['rows' => 6])->label(Yii::t('common', 'Съобщение')) ?>
 
-                    <div class="form-group">
-                        <?= Html::submitButton('Submit', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
-                    </div>
+                <?= $form->field($model, 'verifyCode')->widget(Captcha::className(), [
+                    'template' => '<div class="row"><div class="col-lg-3">{image}</div><div class="col-lg-6">{input}</div></div>',
+                ])->label('') ?>
+
+                <div class="form-group">
+                    <?= Html::submitButton(Yii::t('common', 'Подайте'), ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
+                </div>
 
                 <?php ActiveForm::end(); ?>
 

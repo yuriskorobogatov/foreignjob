@@ -14,6 +14,7 @@ class SiteController extends Controller
     /**
      * @inheritdoc
      */
+
     public function behaviors()
     {
         return [
@@ -42,6 +43,8 @@ class SiteController extends Controller
      */
     public function actions()
     {
+
+
         return [
             'error' => [
                 'class' => 'yii\web\ErrorAction',
@@ -50,6 +53,10 @@ class SiteController extends Controller
                 'class' => 'yii\captcha\CaptchaAction',
                 'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
             ],
+            'page' => [
+                'class' => \yii\web\ViewAction::className(),
+                'viewPrefix' => 'pages/' . \Yii::$app->language
+            ]
         ];
     }
 
@@ -61,6 +68,14 @@ class SiteController extends Controller
     public function actionIndex()
     {
         return $this->render('index');
+    }
+    public function actionNews()
+    {
+        return $this->render('news');
+    }
+    public function actionProgram()
+    {
+        return $this->render('program');
     }
 
     /**
@@ -105,14 +120,12 @@ class SiteController extends Controller
         $model = new ContactForm();
         if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
             Yii::$app->session->setFlash('contactFormSubmitted');
-
             return $this->refresh();
         }
         return $this->render('contact', [
             'model' => $model,
         ]);
     }
-
     /**
      * Displays about page.
      *
