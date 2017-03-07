@@ -35,11 +35,12 @@ $news=Yii::t('common', 'Новини и полезна информация');
 $personal=Yii::t('common', 'Анкета-заявка');
 $contact=Yii::t('common', 'Контакти');
 NavBar::begin([
-    'brandLabel' =>'<div class="form-group form-inline">'. $title.'
-<img width="28px" height="27px" src="/web/icons/google.png" >
-<img width="30px" src="/web/icons/facebook.png" >
-<img width="30px" src="/web/icons/viber.png"  title="+359892205510
-+359892205510">
+    'brandLabel' =>'<div class="form-group form-inline" style="height: 0px!important;">'. $title.'
+<a href=""><img width="38px" height="37px" src="/web/icons/google.png" ></a>
+<a href="https://www.facebook.com/proficenter.bg/"><img width="40px" src="/web/icons/facebook.png" ></a>
+<a href=""><img width="40px" src="/web/icons/viber.png"  title="+359892205510
++359892205510"></a>
+<a href="" style="visibility:hidden;"><img width="30px" src="/web/icons/viber_fake.png"  ></a>
 </div>',
 
 

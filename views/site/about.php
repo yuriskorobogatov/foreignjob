@@ -4,7 +4,7 @@
 
 use yii\helpers\Html;
 
-$this->title = 'About';
+$this->title = 'Анкета';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="col-md-12">
