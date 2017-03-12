@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="1a10d2c7-b971-44a0-abbb-efd9503f8249" name="cow-test" url="http://192.168.200.22">
+        <fileTransfer host="192.168.200.22" port="21" rootFolder="/cow-test.global-x.ru/www" password="dffddfffdfefdfcfdfc7df98dff3dfee" username="skorobogatov">
+          <advancedOptions>
+            <advancedOptions controlEncoding="utf-8" dataProtectionLevel="Private" passiveMode="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
