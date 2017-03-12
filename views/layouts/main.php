@@ -27,27 +27,21 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 
-<!-- Navigation -->
+
 <?php
-$title=Yii::t('common', 'ПРОФИ ЦЕНТЪР БГ');
+$title='“ПРОФИ ЦЕНТЪР БГ” ЕООД';
 $home=Yii::t('common', 'Начало');
 $news=Yii::t('common', 'Новини и полезна информация');
 $personal=Yii::t('common', 'Анкета-заявка');
 $contact=Yii::t('common', 'Контакти');
 NavBar::begin([
-    'brandLabel' =>'<div class="form-group form-inline" style="height: 0px!important;">'. $title.'
+    'brandLabel' =>'<div class="form-group form-inline" style="height: 0px!important;"><img width=100px" src="/web/images/logo.bmp" style="float:left;margin-top: -10px;">'. $title.'
 <a href=""><img width="38px" height="37px" src="/web/icons/google.png" ></a>
 <a href="https://www.facebook.com/proficenter.bg/"><img width="40px" src="/web/icons/facebook.png" ></a>
 <a href=""><img width="40px" src="/web/icons/viber.png"  title="+359892205510
-+359892205510"></a>
-<a href="" style="visibility:hidden;"><img width="30px" src="/web/icons/viber_fake.png"  ></a>
++380932931199"></a>
+<a href="" style="visibility:hidden;"><img width="30px" src="/web/icons/viber.png"  ></a>
 </div>',
-
-
-//    'brandLabel' =>
-////        Html::img('@web/icons/google.png', ['alt'=>Yii::$app->name,'width'=>'28']),
-//        Html::img('@web/icons/facebook.png', ['alt'=>Yii::$app->name,'width'=>'30']),
-//        Html::img('@web/icons/viber.png', ['alt'=>Yii::$app->name,'width'=>'30']),
 
 
     'brandUrl' => Yii::$app->homeUrl,
@@ -71,71 +65,21 @@ echo Nav::widget([
 ]);
 NavBar::end();
 ?>
-<header id="myCarousel" class="carousel slide">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>
 
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner">
-        <div class="item active">
-            <div class="fill" style="background-image:url(<?= Yii::getAlias('@web').'/images/img1.jpg'  ?>);"></div>
-            <div  class="carousel-caption text-info">
-                <h2><?= Yii::t('common', 'Сезонна работа на курортите в България') ?></h2>
-            </div>
-        </div>
-        <div class="item">
-            <div class="fill" style="background-image:url(<?= Yii::getAlias('@web').'/images/img2.jpg'  ?>);"></div>
-            <div class="carousel-caption text-info">
-                <h2><?= Yii::t('common', 'Сезонна работа на курортите в България') ?></h2>
-            </div>
-        </div>
-        <div class="item">
-            <div class="fill" style="background-image:url(<?= Yii::getAlias('@web').'/images/img3.jpg'  ?>);"></div>
-            <div class="carousel-caption " >
-                <h2><?= Yii::t('common', 'Студентска практика в България') ?></h2>
-            </div>
-        </div>
-    </div>
 
-    <!-- Controls -->
-    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-        <span class="icon-prev"></span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" data-slide="next">
-        <span class="icon-next"></span>
-    </a>
-</header>
 <!-- Page Content -->
-<div class="wrap">
 
-    <div class="container">
+
         <?= $content ?>
-    </div>
-</div>
+
+
 
 <!-- /.container -->
 
-<footer class="footer">
-    <div class="container">
-        <p class="pull-left">&copy; <?=$title ?> <?= date('Y') ?> </p>
 
-
-        <p class="pull-right"><?= Yii::powered() ?></p>
-    </div>
-</footer>
 
 <?php $this->endBody() ?>
 </body>
 </html>
 <?php $this->endPage() ?>
 
-
-
-
-</body>
-
-</html>
